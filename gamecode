@@ -1,0 +1,65 @@
+import random
+
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+moves = [rock, paper, scissors]
+
+
+
+player1 = input("What do you choose? Type 0 for Rock, 1 for Paper, or 2 for Scissors\n")
+
+
+if player1 == 0:
+    print("You chose:")
+    print(rock)
+    if player1 == 1:
+        print(paper)
+else:
+    print("You chose:")
+    print(scissors)
+
+
+computer = random.randint(0,2)
+
+
+print(f"The computer chose {computer}")
+print(moves[computer])
+
+
+if int(player1) >= 3 or int(player1) < 0:
+    print("Invalid Number! You Lose!")
+elif int(player1) == 0 and computer == 2:
+    print("You Win!")
+elif computer == 0 and int(player1) == 2:
+    print("You Lose!")
+elif computer > int(player1):
+    print("You Lose.")
+elif computer < int(player1):
+    print("You Win!")
+elif computer == int(player1):
+    print("There was a tie! Play again.")
